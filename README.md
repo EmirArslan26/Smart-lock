@@ -1,235 +1,66 @@
-Smart Lock System
-
-This is an Arduino-based Smart Lock System designed to secure doors using RFID cards, a keypad, and a password. It features a servo motor for locking/unlocking, an LCD for user feedback, and a buzzer for audio notifications.
-
-Features
-
-
-
-
-
-RFID Card Access: Unlock the system by scanning a registered RFID card with the MFRC522 reader.
-
-
-
-Keypad Password Entry: Enter a 4-digit password (default: 1234) to unlock the system.
-
-
-
-Lock/Unlock: Lock the system manually using the keypad or a button.
-
-
-
-Change Password: Update the password via the keypad.
-
-
-
-Add New RFID Card: Register new RFID cards (up to 4 cards).
-
-
-
-Reset System: Reset all saved cards and passwords.
-
-
-
-User Feedback: LCD displays messages, and the buzzer provides audio feedback.
-
-Hardware Requirements
-
-
-
-
-
-Arduino Uno
-
-
-
-Servo Motor (connected to A0)
-
-
-
-Buzzer (A1)
-
-
-
-Button (A2)
-
-
-
-4x3 Keypad (pins 8, 7, 6, 5 for rows; 4, 3, 2 for columns)
-
-
-
-MFRC522 RFID Reader (SS: 10, RST: 9, SPI pins: 11, 12, 13)
-
-
-
-16x2 I2C LCD (SDA: A4, SCL: A5)
-
-Connection Diagram
-
-Servo Motor:
-
-
-
-
-
-Signal: Arduino A0
-
-
-
-VCC: Arduino 5V
-
-
-
-GND: Arduino GND
-
-Buzzer:
-
-
-
-
-
-Positive: Arduino A1
-
-
-
-Negative: Arduino GND
-
-Button:
-
-
-
-
-
-One end: Arduino A2
-
-
-
-Other end: Arduino GND (with a pull-down resistor, e.g., 10k ohm)
-
-4x3 Keypad:
-
-
-
-
-
-Rows: Arduino Pins 8, 7, 6, 5
-
-
-
-Columns: Arduino Pins 4, 3, 2
-
-MFRC522 RFID Reader:
-
-
-
-
-
-SS (SDA): Arduino Pin 10
-
-
-
-RST: Arduino Pin 9
-
-
-
-MOSI: Arduino Pin 11
-
-
-
-MISO: Arduino Pin 12
-
-
-
-SCK: Arduino Pin 13
-
-
-
-VCC: Arduino 3.3V
-
-
-
-GND: Arduino GND
-
-I2C 16x2 LCD:
-
-
-
-
-
-SDA: Arduino A4
-
-
-
-SCL: Arduino A5
-
-
-
-VCC: Arduino 5V
-
-
-
-GND: Arduino GND
-
-Usage Instructions
-
-
-
-
-
-Unlock with RFID Card: Scan a registered card. If valid, the lock opens, LCD shows "Lock opened," and the buzzer beeps once.
-
-
-
-Unlock with Password: Press "**" on the keypad, enter the 4-digit password. If correct, the lock opens.
-
-
-
-Lock the System: Press "##" to lock. LCD shows "Lock closed."
-
-
-
-Change Password: Press "99," enter the old password, then a new one. LCD confirms with "Password changed."
-
-
-
-Add New Card: Press "88," enter the password, then scan a new card. LCD shows "New card saved."
-
-
-
-Reset System: Press "00," enter the password to reset all data.
-
-
-
-Manual Unlock/Lock: Press the button to toggle the lock state.
-
-Installation
-
-
-
-
-
-Clone the repository:
-
-git clone https://github.com/yourusername/smart-lock-system.git
-
-
-
-Open the smart_lock_code.ino file in the Arduino IDE.
-
-
-
-Install the required libraries: Servo, Wire, LiquidCrystal_I2C, EEPROM, SPI, MFRC522, Keypad.
-
-
-
-Upload the code to your Arduino Uno.
-
-
-
-Connect the components as per the connection diagram.
-
-License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+# 🔐 Arduino Smart Lock System
+
+![Project Banner](https://via.placeholder.com/800x200?text=Arduino+Smart+Lock+System)  
+*Secure access control with RFID and keypad*
+
+## 🚀 Features
+- **🪪 RFID Authentication** - Register up to 4 cards
+- **⌨️ Keypad Entry** - 4-digit PIN (Default: `1234`)
+- **🔓 Servo-Controlled Lock** - Smooth door mechanism
+- **📱 User Interface** 
+  - 16x2 LCD for feedback
+  - Buzzer for audio alerts
+- **⚙️ Admin Functions**
+  - Change password (`99 + old + new`)
+  - Add new cards (`88 + PIN`)
+  - Factory reset (`00 + PIN`)
+
+## 📦 Hardware Components
+| Component | Quantity | Connection |
+|-----------|----------|------------|
+| Arduino Uno | 1 | - |
+| MFRC522 RFID | 1 | SS:10, RST:9 |
+| Servo Motor | 1 | A0 |
+| 4x3 Keypad | 1 | Rows:8-5, Cols:4-2 |
+| I2C LCD | 1 | SDA:A4, SCL:A5 |
+| Buzzer | 1 | A1 |
+| Push Button | 1 | A2 |
+
+## 🔧 Installation
+```bash
+# Clone repository
+git clone https://github.com/yourusername/arduino-smart-lock.git
+
+# Required libraries:
+1. Servo.h
+2. MFRC522.h
+3. Keypad.h
+4. LiquidCrystal_I2C.h
+5. EEPROM.h
+🛠️ Wiring Diagram
+plaintext
+        ARDUINO UNO
+       +------------+
+RFID   | 10(SS),9   |
+SERVO  | A0         |
+BUZZER | A1         |
+BUTTON | A2         |
+LCD    | A4(SDA),A5 |
+KEYPAD | Rows:8-5   |
+       | Cols:4-2   |
+       +------------+
+💡 Usage Instructions
+Normal Operation:
+Scan registered RFID card → Unlocks door
+
+Press ** + enter PIN → Alternative unlock
+
+Press ## → Lock door immediately
+
+Admin Mode:
+Combination	Function
+99 + Old + New PIN	Change password
+88 + PIN + Scan card	Register new card
+00 + PIN	Factory reset
+📜 License
+MIT License © 2023 - See LICENSE for details.
