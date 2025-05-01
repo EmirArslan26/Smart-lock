@@ -1,0 +1,87 @@
+English:
+Smart Lock System: Connection Diagram
+
+This diagram lists the connections for the Arduino-based smart lock system in Fritzing style.
+
+Connections:
+
+Arduino Uno is used.
+
+Servo Motor Connections:
+
+Signal: Arduino A0
+VCC: Arduino 5V
+GND: Arduino GND
+Buzzer Connections:
+
+Positive: Arduino A1
+Negative: Arduino GND
+Button Connections:
+
+One end: Arduino A2
+Other end: Arduino GND (with a pull-down resistor, e.g., 10k ohm)
+4x3 Keypad Connections:
+
+Row 1: Arduino Pin 8
+Row 2: Arduino Pin 7
+Row 3: Arduino Pin 6
+Row 4: Arduino Pin 5
+Column 1: Arduino Pin 4
+Column 2: Arduino Pin 3
+Column 3: Arduino Pin 2
+MFRC522 RFID Reader Connections:
+
+SS (SDA): Arduino Pin 10
+RST: Arduino Pin 9
+MOSI: Arduino Pin 11
+MISO: Arduino Pin 12
+SCK: Arduino Pin 13
+VCC: Arduino 3.3V
+GND: Arduino GND
+I2C 16x2 LCD Connections:
+
+SDA: Arduino A4
+SCL: Arduino A5
+VCC: Arduino 5V
+GND: Arduino GND
+Türkçe:
+Devre Şeması Bağlantıları (Fritzing Tarzı)
+Arduino Uno kullanıldı.
+
+Servo Motor Bağlantıları:
+
+Sinyal: Arduino A0
+VCC: Arduino 5V
+GND: Arduino GND
+Buzzer Bağlantıları:
+
+Pozitif: Arduino A1
+Negatif: Arduino GND
+Buton Bağlantıları:
+
+Bir ucu: Arduino A2
+Diğer ucu: Arduino GND (pull-down direnci ile, ör. 10k ohm)
+4x3 Keypad Bağlantıları:
+
+Satır 1: Arduino Pin 8
+Satır 2: Arduino Pin 7
+Satır 3: Arduino Pin 6
+Satır 4: Arduino Pin 5
+Sütun 1: Arduino Pin 4
+Sütun 2: Arduino Pin 3
+Sütun 3: Arduino Pin 2
+MFRC522 RFID Okuyucu Bağlantıları:
+
+SS (SDA): Arduino Pin 10
+RST: Arduino Pin 9
+MOSI: Arduino Pin 11
+MISO: Arduino Pin 12
+SCK: Arduino Pin 13
+VCC: Arduino 3.3V
+GND: Arduino GND
+I2C 16x2 LCD Bağlantıları:
+
+SDA: Arduino A4
+SCL: Arduino A5
+VCC: Arduino 5V
+GND: Arduino GND

@@ -1,0 +1,47 @@
+Akıllı Kilit Sistemi: Özellikler ve Kullanım Kılavuzu
+
+Bu sistem, Arduino tabanlı bir akıllı kilit sistemidir. RFID kart, keypad ve şifre ile kilit açıp kapatma işlemlerini yapar.
+
+Özellikler ve Kullanım Şekli:
+
+RFID Kart ile Kilit Açma:
+Kayıtlı RFID kartı MFRC522 okuyucuya okutun. Geçerliyse kilit açılır, LCD “Kilit açıldı” mesajı gösterir, buzzer tek beep çalar. Geçersizse “Geçersiz kart” mesajı ve 6 kısa beep çıkar.
+Keypad ile Şifre Girişi:
+Keypad’de “**” tuşlayın, 4 haneli şifrenizi girin (varsayılan: 1234). Doğruysa kilit açılır, LCD “Kilit açıldı” der. Yanlışsa “Şifre hatalı” mesajı ve 6 beep.
+Kilit Kapatma:
+Keypad’de “##” tuşlayın. Kilit kapanır, LCD “Kilit kapandı” mesajı gösterir.
+Şifre Değiştirme:
+“99” tuşlayın, eski şifreyi girin. Doğruysa yeni 4 haneli şifreyi girin, EEPROM’a kaydedilir, LCD “Şifre değişti” der. Yanlışsa “Şifre hatalı” mesajı çıkar.
+Yeni Kart Tanımlama:
+“88” tuşlayın, şifrenizi girin. Doğruysa yeni kartı okutun, EEPROM’a kaydedilir, LCD “Yeni kart kaydedildi” der. Zaten kayıtlıysa “Kart zaten var” mesajı gösterir. Maksimum 4 kart saklanabilir.
+EEPROM Sıfırlama:
+“00” tuşlayın, şifrenizi girin. Doğruysa tüm kartlar ve şifre sıfırlanır. Yanlışsa “Şifre hatalı” mesajı çıkar.
+İçten Kilit Açma/Kapama:
+Butona basın, kilit durumu değişir (açık/kapalı). Buton bırakılana kadar bekler.
+Genel Kullanım:
+
+Sistem açıldığında LCD “Merhaba, Hoşgeldiniz” mesajı gösterir. RFID kartınızı okutun veya keypad ile şifrenizi girerek kilidi açın. Diğer işlemleri keypad komutlarıyla yapabilirsiniz. Her işlemde LCD ve buzzer geri bildirim verir.
+English:
+Smart Lock System: Features and User Guide
+
+This system is an Arduino-based smart lock system. It allows locking and unlocking using an RFID card, keypad, and password.
+
+Features and Usage:
+
+Unlocking with RFID Card:
+Scan a registered RFID card with the MFRC522 reader. If valid, the lock opens, LCD displays “Lock opened,” and the buzzer beeps once. If invalid, “Invalid card” message appears with 6 short beeps.
+Password Entry via Keypad:
+Press “**” on the keypad, enter your 4-digit password (default: 1234). If correct, the lock opens, LCD shows “Lock opened.” If wrong, “Wrong password” message appears with 6 beeps.
+Locking the System:
+Press “##” on the keypad. The lock closes, and LCD displays “Lock closed.”
+Change Password:
+Press “99,” enter the old password. If correct, enter a new 4-digit password, it’s saved to EEPROM, and LCD shows “Password changed.” If wrong, “Wrong password” message appears.
+Add New Card:
+Press “88,” enter your password. If correct, scan a new card, it’s saved to EEPROM, and LCD displays “New card saved.” If already registered, “Card already exists” message appears. Maximum 4 cards can be stored.
+Reset EEPROM:
+Press “00,” enter your password. If correct, all cards and password are reset. If wrong, “Wrong password” message appears.
+Manual Lock/Unlock from Inside:
+Press the button to toggle the lock state (open/close). The system waits until the button is released.
+General Usage:
+
+On startup, the LCD displays “Hello, Welcome.” Scan your RFID card or enter your password via the keypad to unlock. Use keypad commands for other operations. The LCD and buzzer provide feedback for each action.
