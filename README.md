@@ -1,66 +1,64 @@
-# 🔐 Arduino Smart Lock System
+# 🔐 Akıllı Oda Kilit Sistemi (Arduino Tabanlı)
 
-![Project Banner](https://via.placeholder.com/800x200?text=Arduino+Smart+Lock+System)  
-*Secure access control with RFID and keypad*
+Bu proje, **odanızın güvenliğini sağlamak** ve **izinsiz girişleri engellemek** amacıyla geliştirilmiş bir **Arduino tabanlı akıllı kilit sistemidir**. Projede, 3D baskı parçalar, LCD ekran, tuş takımı (keypad) ve RFID gibi bileşenler kullanılarak fiziksel güvenlik desteklenmiştir.
 
-## 🚀 Features
-- **🪪 RFID Authentication** - Register up to 4 cards
-- **⌨️ Keypad Entry** - 4-digit PIN (Default: `1234`)
-- **🔓 Servo-Controlled Lock** - Smooth door mechanism
-- **📱 User Interface** 
-  - 16x2 LCD for feedback
-  - Buzzer for audio alerts
-- **⚙️ Admin Functions**
-  - Change password (`99 + old + new`)
-  - Add new cards (`88 + PIN`)
-  - Factory reset (`00 + PIN`)
+🎥 Tanıtım Videosu: [YouTube'da İzle](https://youtu.be/GzReClGKmlc?si=mIgXRUeBFSM3Q335)
 
-## 📦 Hardware Components
-| Component | Quantity | Connection |
-|-----------|----------|------------|
-| Arduino Uno | 1 | - |
-| MFRC522 RFID | 1 | SS:10, RST:9 |
-| Servo Motor | 1 | A0 |
-| 4x3 Keypad | 1 | Rows:8-5, Cols:4-2 |
-| I2C LCD | 1 | SDA:A4, SCL:A5 |
-| Buzzer | 1 | A1 |
-| Push Button | 1 | A2 |
+---
 
-## 🔧 Installation
-```bash
-# Clone repository
-git clone https://github.com/yourusername/arduino-smart-lock.git
+## 📦 Kullanılan Malzemeler
 
-# Required libraries:
-1. Servo.h
-2. MFRC522.h
-3. Keypad.h
-4. LiquidCrystal_I2C.h
-5. EEPROM.h
-🛠️ Wiring Diagram
-plaintext
-        ARDUINO UNO
-       +------------+
-RFID   | 10(SS),9   |
-SERVO  | A0         |
-BUZZER | A1         |
-BUTTON | A2         |
-LCD    | A4(SDA),A5 |
-KEYPAD | Rows:8-5   |
-       | Cols:4-2   |
-       +------------+
-💡 Usage Instructions
-Normal Operation:
-Scan registered RFID card → Unlocks door
+| Malzeme                     | Açıklama                                      |
+|----------------------------|-----------------------------------------------|
+| Arduino Uno                | Sistemin ana kontrolcüsüdür                   |
+| 3D Baskı Parçalar          | Kilit mekanizması için tasarlanmış parçalar   |
+| I2C LCD Ekran (16x2)       | Giriş bilgilerini ve sistem durumunu gösterir |
+| Buzzer                     | Uyarı sesleri için                            |
+| 3x4 Keypad                 | Şifre girişi                                  |
+| RFID Kart Okuyucu (RC522) | Opsiyonel – Kullanıcı tanımlı giriş           |
+| Jumper Kablolar            | Bağlantılar için                              |
+| Anahtar / Adaptör / Pil    | 5–9V güç kaynağı                              |
+| 9V Pil + Pil Yatağı        | (Eğer adaptör yerine pil kullanılacaksa)      |
 
-Press ** + enter PIN → Alternative unlock
+---
 
-Press ## → Lock door immediately
+## ⚙️ Sistem Özellikleri
 
-Admin Mode:
-Combination	Function
-99 + Old + New PIN	Change password
-88 + PIN + Scan card	Register new card
-00 + PIN	Factory reset
-📜 License
-MIT License © 2023 - See LICENSE for details.
+- Şifreli giriş sistemi (3x4 Keypad ile)
+- LCD ekranda bilgilendirme
+- Hatalı girişlerde buzzer ile uyarı
+- RFID kart ile giriş (isteğe bağlı)
+- 3D yazıcı ile hazırlanmış kilit mekanizması
+- Arduino UNO tabanlı sistem
+- Enerji kaynağı olarak adaptör veya pil kullanılabilir
+
+---
+
+## 🧠 Opsiyonel Bileşenler
+
+RFID kart okuyucu zorunlu **değildir**. Eğer bu bileşeni sisteminize eklemek istemiyorsanız, kodu **hiçbir değişiklik yapmadan** doğrudan yükleyebilir ve kullanabilirsiniz.
+
+---
+
+## 🚀 Nasıl Kullanılır?
+
+1. Gerekli malzemeleri temin edin.
+2. Devre bağlantılarını yapın (devre şeması için proje klasörüne göz atın).
+3. Arduino IDE üzerinden `akilli_kilit.ino` dosyasını açın ve yükleyin.
+4. Sistemi test edin ve kişisel şifrenizi tanımlayın.
+5. Dilerseniz RFID kart okuyucu modülünü entegre edin.
+
+---
+
+## 🧾 Lisans
+
+Bu proje açık kaynaklıdır ve kişisel/öğrenci projelerinde serbestçe kullanılabilir. Her türlü katkıya açıktır!
+
+---
+
+## 💡 Katkıda Bulun
+
+Pull request'ler ve issue bildirimleri memnuniyetle karşılanır. Projeyi geliştirmek istersen katkıda bulunabilirsin. 🙌
+
+---
+
